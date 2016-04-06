@@ -19,13 +19,14 @@ function loadData(url, cfunc) {
 }
 
 
-function showData(arr){
+function showData(arr) {
     //iterate through array and show it on <div> tag
     var out = "";
     var i;
-    for(i = 0; i < arr.length; i++) {
+    for (i = 0; i < arr.length; i++) {
         out += '<a>' + arr[i].name + '</a><br>' + '<a>' + arr[i].sku + '</a><br>'
-            + '<a>' + arr[i].price + "  CHF" +'</a><br>';
+            + '<a>' + arr[i].imageurl + '</a><br>'
+            + '<a>' + arr[i].price + "  CHF" + '</a><br>';
+        div.innerHTML = out;
     }
-    div.innerHTML = out;
 }
