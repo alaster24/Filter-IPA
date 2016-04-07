@@ -3,3 +3,6 @@ node_modules
 
 #ignores .idea folder
 .idea
+
+#ignores npm debug log
+npm-debug.log

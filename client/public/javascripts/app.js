@@ -21,12 +21,23 @@ function loadData(url, cfunc) {
 
 function showData(arr) {
     //iterate through array and show it on <div> tag
-    var out = "";
-    var i;
+    let out = '<tr><th>Produktname</th><th>SKU</th><th>Bildlink</th><th>Preis</th>';
+    let i;
+    let splitUrlLink = "";
     for (i = 0; i < arr.length; i++) {
-        out += '<a>' + arr[i].name + '</a><br>' + '<a>' + arr[i].sku + '</a><br>'
-            + '<a>' + arr[i].imageurl + '</a><br>'
-            + '<a>' + arr[i].price + "  CHF" + '</a><br>';
+        splitUrlLink = searchForComma(arr[i].imageurl);
+        out += '</tr>' + '<tr><td>' + arr[i].name + '</td>' + '<td>' + arr[i].sku + '</td>'
+            + '<td><a href=' + splitUrlLink + '>Bildlink</a></td>'
+            + '<td>' + arr[i].price + "  CHF" + '</td></tr>';
         div.innerHTML = out;
     }
+}
+
+function searchForComma(inputString){
+    let splitString = "";
+    if(inputString.indexOf(',') > -1){
+        splitString = inputString.split(",");
+        return splitString[0];
+    }
+    return inputString;
 }

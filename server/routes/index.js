@@ -128,4 +128,32 @@ router.get('/api/products/10leastexpensive', (req, res) => {
 });
 
 
+//GET for products with no description
+router.get('/api/products/nodescription', (req, res) => {
+    let results = [];
+
+    //Get a Postgres client from the connection pool
+    pg.connect(connectionString, (err, client, done) => {
+        //Handle connection errors
+        if(err){
+            done();
+            return res.status(500).json({ success: false, data: err})
+        }
+
+        //SQL Query > Select products with no description
+        let query = client.query("SELECT name, description ,sku, price, imageurl FROM product " +
+            "WHERE description = '' ORDER BY price ASC LIMIT 10;");
+
+        //Stream results back one row at a time
+        query.on('row', (row)=> {
+            results.push(row);
+        });
+
+        //After all data is returned, close connection and return results
+        query.on('end', () => {
+            done();
+            return res.json(results);
+        })
+    })
+});
 module.exports = router;
