@@ -27,7 +27,7 @@ function showData(arr) {
     for (i = 0; i < arr.length; i++) {
         splitUrlLink = searchForComma(arr[i].imageurl);
         out += '</tr>' + '<tr><td>' + arr[i].name + '</td>' + '<td>' + arr[i].sku + '</td>'
-            + '<td><a href=' + splitUrlLink + '>Bildlink</a></td>'
+            + '<td><img src=' + splitUrlLink + ' alt="Produktbild" height="50%" width="50%"></td>'
             + '<td>' + arr[i].price + "  CHF" + '</td></tr>';
         div.innerHTML = out;
     }

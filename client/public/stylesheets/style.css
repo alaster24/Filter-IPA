@@ -48,3 +48,15 @@ td, th{
 tr:hover{
     background: #4FCADC;
 }
+
+img {
+  width: 50%;
+  height: 50%;
+  -moz-transition: all 1s;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+img.expanded{
+  width: 100%;
+  height: 100%;
+}
