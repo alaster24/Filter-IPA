@@ -1,62 +1,68 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    padding: 50px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: #00B7FF;
+    color: #00B7FF;
 }
 
 ul {
-  list-style-type: none;
-  padding-left: 10px;
+    list-style-type: none;
+    padding-left: 10px;
 }
 
 .container {
-  max-width: 400px;
-  background-color: #eeeeee;
-  border: 1px solid black;
+    max-width: 400px;
+    background-color: #eeeeee;
+    border: 1px solid black;
 }
 
 .header {
-  text-align: center;
+    text-align: center;
 }
 
-.button{
-  background-color: #4FCADC;
-  border-radius: 8px;
+.button {
+    background-color: #4FCADC;
+    border-radius: 8px;
 }
-.button span{
-  display: block;
-  position: absolute;
-  transition: 0.5s;
+
+.button span {
+    display: block;
+    position: absolute;
+    transition: 0.5s;
 }
-.button span:after{
-  content: "Do queries »";
-  position: absolute;
+
+.button span:after {
+    content: "Do queries »";
+    position: absolute;
 }
-table{
-  border-collapse: collapse;
-  border-spacing: 0;
-  width: 100%;
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
 }
-td, th{
+
+td, th {
     border: 1px solid #ddd;
     text-align: left;
     padding: 8px;
 }
-tr:hover{
+
+tr:hover {
     background: #4FCADC;
 }
 
 img {
-  width: 50%;
-  height: 50%;
-  -moz-transition: all 0.5s;
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
+    height: 50%;
+    width: 50%;
+    -moz-transition: all 1s ease;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
 }
+
 img:hover {
-  width: 100%;
-  height: 100%;
+    height: 100%;
+    width: 100%;
 }

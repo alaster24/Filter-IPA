@@ -6,11 +6,11 @@ let path = require('path');
 let router = express.Router();
 let connectionString = require(path.join(__dirname, '../', '../', 'config'));
 
-//GET for products with names longer than 100 characters
 router.get('/', function(req, res, next) {
     res.sendFile(path.join(__dirname, '../', '../', 'client', 'views', 'index.html'));
 });
 
+//GET for products with names longer than 100 characters
 router.get('/api/products/longerthan100', (req, res) => {
   let results = [];
 
