@@ -1,11 +1,15 @@
 "use strict";
 
 //Modules required
-const pg = require('pg');
-const path = require('path');
+let pg = require('pg');
+let path = require('path');
+
 let connectionString = require(path.join(__dirname, '../', '../', 'config'));
 
 let client = new pg.Client(connectionString);
+
+let productFeed = path.join(__dirname, './product-feed-full.csv');
+
 client.connect();
 //creating new database
 let query = client.query('CREATE TABLE product(name VARCHAR(1000), description VARCHAR(10000),' +
@@ -14,7 +18,7 @@ let query = client.query('CREATE TABLE product(name VARCHAR(1000), description V
     'topsellerL3 REAL, topsellerHome REAL, productScore REAL, manualTags VARCHAR(1000));' +
     'COPY product(name, description, url, sku, price, inStock, imageUrl, groupId, categories, topsellerL1,' +
     'topsellerL2, topsellerL3, topsellerHome, productScore, manualTags) ' +
-    "FROM '/home/alaster/Downloads/product-feed-full.csv' WITH CSV HEADER delimiter ',';" +
+    "FROM '" + productFeed + "' WITH CSV HEADER delimiter ',';" +
     'DELETE FROM product WHERE ctid IN (SELECT ctid FROM product ORDER BY instock ASC LIMIT 1);' +
     "ALTER TABLE product ALTER instock TYPE boolean USING CASE instock WHEN 'True' THEN TRUE ELSE FALSE END;");
 query.on('end', () => { client.end(); });
