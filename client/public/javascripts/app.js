@@ -1,7 +1,6 @@
 'use strict';
 
 let div = document.getElementById('results');
-let titelH1 = document.getElementsByName('titel');
 let button = document.getElementById('querybutton1');
 
 button.addEventListener("click", loadData('/api/products/longerthan100', showData()));
