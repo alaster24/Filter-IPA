@@ -13,7 +13,6 @@ ul {
 }
 
 .container {
-    max-width: 400px;
     background-color: #eeeeee;
     border: 1px solid black;
 }
@@ -33,9 +32,8 @@ ul {
     transition: 0.5s;
 }
 
-.button span:after {
+.button span:hover {
     content: "Do queries »";
-    position: absolute;
 }
 
 table {
@@ -55,14 +53,14 @@ tr:hover {
 }
 
 img {
-    height: 50%;
-    width: 50%;
-    -moz-transition: all 1s ease;
-    -webkit-transition: all 1s ease;
-    transition: all 1s ease;
+    height: 150px;
+    width: 150px;
+    -moz-transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
 }
 
 img:hover {
-    height: 100%;
-    width: 100%;
+    width: 250px;
+    height: 250px;
 }

@@ -7,12 +7,14 @@
 </head>
 <body>
     <div class="container">
-        <button type="button" id="querybutton1" onclick="loadData('/api/products/longerthan100', showData)">Longer than 100</button>
+        <button type="button" id="querybutton1" <!--onclick="loadData('/api/products/longerthan100', showData)"-->>Longer than 100</button>
         <button type="button" id="querybutton2" onclick="loadData('/api/products/shorterthan20', showData)">Shorter than 20</button>
         <button type="button" id="querybutton3" onclick="loadData('/api/products/10mostexpensive', showData)">Most expensive</button>
         <button type="button" id="querybutton4" onclick="loadData('/api/products/10leastexpensive', showData)">Less expensive</button>
+        <button type="button" id="querybutton5" onclick="loadData('/api/products/samegroupid', showData)">Same Group-Id</button>
+        <button type="button" id="querybutton6" onclick="loadData('/api/products/samename', showData)">Same name</button>
     </div>
-    <h1>Resultate</h1>
+    <h1 name="titel">Resultate</h1>
     <div>
         <table id="results"></table>
     </div>
