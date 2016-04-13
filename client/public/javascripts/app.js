@@ -1,9 +1,6 @@
 'use strict';
 
 let div = document.getElementById('results');
-let button = document.getElementById('querybutton1');
-
-button.addEventListener("click", loadData('/api/products/longerthan100', showData()));
 
 function loadData(url, cfunc) {
     //Get data from the url
