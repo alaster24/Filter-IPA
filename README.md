@@ -1,5 +1,5 @@
 # Filter-IPA
-My repo for my 2 week IPA from *4th April until 15th April*
+Repository for the IPA of Alaster Sulejmani from *the 4th of April until the 15th of April*
 
 # Getting Started
 - Install [node.js](https://nodejs.org/en/)
