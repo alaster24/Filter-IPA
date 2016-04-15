@@ -23,8 +23,12 @@ router.get('/api/products/longerthan100', (req, res) => {
         }
 
         // query => Select 50 Data with a longer length than 100
-        let query = client.query('SELECT name, sku, price, imageurl FROM product WHERE LENGTH(name) > 100 ' +
-            'ORDER BY LENGTH(name), name LIMIT 50;');
+        let query = client.query(''
+            + 'SELECT name, sku, price, imageurl '
+            + 'FROM product '
+            + 'WHERE LENGTH(name) > 100 '
+            + 'ORDER BY LENGTH(name), name '
+            + 'LIMIT 50;');
 
         // get results and push it in the array
         query.on('row', (row)=> {
@@ -44,7 +48,6 @@ router.get('/api/products/longerthan100', (req, res) => {
 router.get('/api/products/shorterthan20', (req, res) => {
     let queryResults = [];
 
-
     pg.connect(connectionString, (err, client, done) => {
         // handle connection errors
         if (err) {
@@ -53,8 +56,12 @@ router.get('/api/products/shorterthan20', (req, res) => {
         }
 
         // query => Select 50 Data with a shorter length than 20
-        let query = client.query('SELECT name, sku, price, imageurl FROM product WHERE LENGTH(name) < 20 ' +
-            'ORDER BY LENGTH(name), name LIMIT 50;');
+        let query = client.query(''
+            + 'SELECT name, sku, price, imageurl '
+            + 'FROM product '
+            + 'WHERE LENGTH(name) < 20 '
+            + 'ORDER BY LENGTH(name), name '
+            + 'LIMIT 50;');
 
         query.on('row', (row)=> {
             queryResults.push(row);
@@ -79,7 +86,11 @@ router.get('/api/products/10mostexpensive', (req, res) => {
         }
 
         // query => Select 10 most expensive products
-        let query = client.query('SELECT name, sku, price, imageurl FROM product ORDER BY price DESC LIMIT 10;');
+        let query = client.query(''
+            + 'SELECT name, sku, price, imageurl '
+            + 'FROM product '
+            + 'ORDER BY price DESC '
+            + 'LIMIT 10;');
 
         query.on('row', (row)=> {
             queryResults.push(row);
@@ -103,8 +114,11 @@ router.get('/api/products/10leastexpensive', (req, res) => {
         }
 
         // query => Select 10 least expensive products
-        let query = client.query('SELECT name, sku, price, imageurl FROM product ORDER BY price ASC LIMIT 10;');
-
+        let query = client.query(''
+            + 'SELECT name, sku, price, imageurl '
+            + 'FROM product '
+            + 'ORDER BY price ASC '
+            + 'LIMIT 10;');
 
         query.on('row', (row)=> {
             queryResults.push(row);
@@ -128,8 +142,11 @@ router.get('/api/products/samegroupid', (req, res) => {
         }
 
         // query => Select products with no description
-        let query = client.query("SELECT name, description ,sku, price, imageurl, groupid, count(groupid) FROM product " +
-            "GROUP BY name, description, sku, price, imageurl, groupid HAVING count(groupid) > 1;");
+        let query = client.query(''
+            + 'SELECT name, description ,sku, price, imageurl, groupid, count(groupid) '
+            + 'FROM product '
+            + 'GROUP BY name, description, sku, price, imageurl, groupid '
+            + 'HAVING count(groupid) > 1;');
 
         query.on('row', (row)=> {
             queryResults.push(row);
@@ -152,8 +169,11 @@ router.get('/api/products/samename', (req, res) => {
         }
 
         // query => Select products with no description
-        let query = client.query("SELECT name, description ,sku, price, imageurl, count(name) FROM product " +
-            "GROUP BY name, description, sku, price, imageurl HAVING count(name) > 1;");
+        let query = client.query(''
+            + 'SELECT name, description ,sku, price, imageurl, count(name) '
+            + 'FROM product '
+            + 'GROUP BY name, description, sku, price, imageurl '
+            + 'HAVING count(name) > 1;');
 
         query.on('row', (row)=> {
             queryResults.push(row);
