@@ -3,7 +3,7 @@
 let div = document.getElementById('results');
 
 function loadData(url, cfunc) {
-    //Get data from the url
+    // get data from the url
     let xmlhttp = new XMLHttpRequest();
     xmlhttp.open('GET', url, true);
     xmlhttp.onreadystatechange = () => {
@@ -18,9 +18,8 @@ function loadData(url, cfunc) {
     xmlhttp.send();
 }
 
-
 function showData(arr) {
-    //iterate through array and show it on <div> tag
+    // iterate through array and show it in <div> tag
     let out = '<tr><th>Produktname</th><th>SKU</th><th>Bildlink</th><th>Preis</th>';
     let splitUrlLink = "";
     if (arr.length > 0) {
@@ -33,9 +32,9 @@ function showData(arr) {
                 + '<td>' + arr[i].price + "  CHF" + '</td></tr>';
             div.innerHTML = out;
         }
-    } else if(arr.length == 0){
+    } else if (arr.length == 0) {
         div.innerHTML = '<h1>Keine Resultate</h1>';
-    } else{
+    } else {
         div.innerHTML = '<h1>Ups, da ist was schief gelaufen...</h1>';
     }
 
