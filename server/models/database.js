@@ -6,7 +6,7 @@ let path = require('path');
 
 let connectionString = require(path.join(__dirname, '../', '../', 'config'));
 let client = new pg.Client(connectionString);
-let productFeed = path.join(__dirname, './product-feed-full.csv');
+let productFeed = path.join(__dirname, '../resources/product-feed-full.csv');
 
 client.connect();
 // creating new database
