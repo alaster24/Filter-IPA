@@ -5,7 +5,6 @@ Repository for the IPA of Alaster Sulejmani from *the 4th of April until the 15t
 - Install [node.js](https://nodejs.org/en/)
 - Install [postgresql](http://www.postgresql.org/download/)
 - Create database named 'products'
-- Download the product data from [balder](https://balder.pthor.ch/media/exports/csv/product-feed-full.csv) and place it in `server/resources/`
 - Run `npm install`
 - Run `npm start`
 

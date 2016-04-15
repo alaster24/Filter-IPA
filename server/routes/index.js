@@ -73,7 +73,7 @@ router.get('/api/products/10leastexpensive', (req, res) => {
             + 'LIMIT 10;');
 });
 
-
+// GET for the products with the same groupID
 router.get('/api/products/samegroupid', (req, res) => {
     return getDataForQuery(res, ''
             + 'SELECT name, description ,sku, price, imageurl, groupid, count(groupid) '
@@ -82,6 +82,7 @@ router.get('/api/products/samegroupid', (req, res) => {
             + 'HAVING count(groupid) > 1;');
 });
 
+// GET for the products with same productname
 router.get('/api/products/samename', (req, res) => {
     return getDataForQuery(res, ''
             + 'SELECT name, description ,sku, price, imageurl, count(name) '
