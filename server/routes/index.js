@@ -12,7 +12,6 @@ router.get('/', function(req, res, next) {
 
 function getDataForQuery(res, sqlStatement) {
     let queryResults = [];
-
     // postgres client
     pg.connect(connectionString, (err, client, done) => {
         // this handles the errors
@@ -20,15 +19,12 @@ function getDataForQuery(res, sqlStatement) {
             done();
             return res.status(500).json({success: false, data: err})
         }
-
         // query => Based on function parameter sqlStatement
         let query = client.query(sqlStatement);
-
         // get results and push it in the array
         query.on('row', (row)=> {
             queryResults.push(row);
         });
-
         // close connection and return results
         query.on('end', () => {
             done();

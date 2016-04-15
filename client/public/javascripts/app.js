@@ -18,7 +18,6 @@ function loadData(url, cfunc) {
     xmlhttp.send();
 }
 
-
 function showData(arr) {
     // iterate through array and show it in <div> tag
     let out = '<tr><th>Produktname</th><th>SKU</th><th>Bildlink</th><th>Preis</th>';
