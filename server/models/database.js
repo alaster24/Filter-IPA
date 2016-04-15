@@ -1,17 +1,15 @@
-"use strict";
+'use strict';
 
-//Modules required
+// modules required
 let pg = require('pg');
 let path = require('path');
 
 let connectionString = require(path.join(__dirname, '../', '../', 'config'));
-
 let client = new pg.Client(connectionString);
-
 let productFeed = path.join(__dirname, './product-feed-full.csv');
 
 client.connect();
-//creating new database
+// creating new database
 console.log("making the table..");
 let query = client.query('CREATE TABLE product(name VARCHAR(1000), description VARCHAR(10000),' +
     'url VARCHAR(2000), sku VARCHAR(1000), price NUMERIC(100,5), inStock VARCHAR(1000), imageUrl VARCHAR(2000), ' +
@@ -22,5 +20,9 @@ let query = client.query('CREATE TABLE product(name VARCHAR(1000), description V
     "FROM '" + productFeed + "' WITH CSV HEADER delimiter ',';" +
     'DELETE FROM product WHERE ctid IN (SELECT ctid FROM product ORDER BY instock ASC LIMIT 1);' +
     "ALTER TABLE product ALTER instock TYPE boolean USING CASE instock WHEN 'True' THEN TRUE ELSE FALSE END;");
-query.on('end', () => { client.end(); });
+
+query.on('end', () => {
+    client.end();
+});
+
 console.log("finished making the table");
